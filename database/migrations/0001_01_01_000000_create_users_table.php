@@ -17,12 +17,20 @@ return new class extends Migration
             $table->string('m_name')->nullable();
             $table->string('l_name')->nullable();
             $table->string('email')->unique();
+            $table->string('contact_number')->nullable();
             $table->boolean('email_verified')->nullable();
             $table->string('password')->nullable();
             $table->string('picture')->nullable();
             $table->string('provider_id')->nullable();
             $table->string('provider_token')->nullable();
-
+            $table->string('role')->nullable();
+            $table->integer('position_id')->nullable();
+            $table->integer('department_id')->nullable();
+            $table->integer('company_id')->nullable();
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->integer('is_deleted')->default(0);
+            $table->string('deleted_by')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

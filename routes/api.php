@@ -14,4 +14,7 @@ Route::post('/authenticating', [AuthController::class, 'authenticating']);
 Route::post('/verify-otp', [AuthController::class, 'verifyOTP']);
 Route::get('/checking-status-otp', [AuthController::class, 'checkingStatusOTP']);
 
-Route::get('/user-management', [UserController::class, 'index']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user-management', [UserController::class, 'index']);
+    Route::post('/user-management', [UserController::class, 'store']);
+});
